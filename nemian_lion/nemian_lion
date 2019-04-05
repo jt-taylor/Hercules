@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#check if root
+if [[ $EUID -ne 0 ]]; then
+	echo "This script must be run as root"
+	exit 1
+fi
+
+apt-get install openssh-server -y
+
+#I coudn't figure out how to get $Portnumber to change into its string value in the regexc expression (?) probably and easy fix
+# to change what port it will set it to change the actuall sed retgex
+PORT_NUMBER="2048"
+
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config_BACKUP
+
+sed -ir "s/^#Port .*/Port $PORT_NUMBER/g" /etc/ssh/sshd_config
+#awk '{sub(/#Port .*/, "Port $PORT_NUMBER")}1' /etc/ssh/sshd_config > /etc/ssh/sshd_config
+
+echo "this is the new port number $PORT_NUMBER"
+
+/etc/init.d/ssh restart

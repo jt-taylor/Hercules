@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "Hello World" > /home/kratos/Hercules/erymanthian_boar/testing_file.txt

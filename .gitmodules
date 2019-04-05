@@ -1,0 +1,3 @@
+[submodule "Ceryneian_hind/Ceryneian_hind/oauth2"]
+	path = Ceryneian_hind/Ceryneian_hind/oauth2
+	url = https://github.com/oauth-xx/oauth2.git

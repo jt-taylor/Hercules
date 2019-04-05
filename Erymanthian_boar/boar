@@ -1,0 +1,8 @@
+#!/bin/bash
+apt-get install at -y
+
+SCRIPT="sh3ttyscript"
+TIME="8:42 AM 12/21/2019"
+TEST="7:12 PM 3/22/2019"
+
+at $TIME < $SCRIPT
